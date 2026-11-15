@@ -1,0 +1,21 @@
+[net]
+git-fetch-with-cli = true
+
+# Use the engine's Luau instead of compiling a second copy into the plugin.
+#
+# The Vectarine runtime exports Luau's C API. If the plugin carried its own copy, the two copies
+# would share one lua_State but disagree on Luau's internal static objects (for example the empty
+# table marker `dummynode`), and whichever copy runs the garbage collector frees the other's
+# statics: a segfault a few seconds in. Overriding mlua-sys's build script (it declares
+# `links = "lua"`) links no Luau at all; the symbols resolve from the runtime when the plugin loads.
+[target.aarch64-apple-darwin.lua]
+rustc-link-lib = []
+
+[target.x86_64-apple-darwin.lua]
+rustc-link-lib = []
+
+[target.aarch64-apple-darwin]
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]
+
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]

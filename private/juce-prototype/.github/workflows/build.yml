@@ -1,0 +1,41 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache downloaded dependencies
+        uses: actions/cache@v4
+        with:
+          path: .deps
+          key: deps-${{ matrix.os }}-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      - name: Test
+        run: ctest --test-dir build --build-config Release --output-on-failure
+
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-of-song-${{ matrix.os }}
+          path: |
+            build/Tower of Song.app
+            build/Release/Tower of Song.exe
+            build/Release/assets
+          if-no-files-found: ignore

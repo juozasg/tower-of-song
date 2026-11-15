@@ -1,0 +1,4 @@
+name = "MIDI Keys"
+description = """MIDI keyboard input (hot-plug, filtered) and a small synth: piano, pad, bell, reverb, echo and sample-accurate phrase playback."""
+version = 1
+url = "https://github.com/vanyle/vectarine/tree/main/vectarine-plugin-template"

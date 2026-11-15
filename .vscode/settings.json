@@ -1,0 +1,9 @@
+{
+	"luau-lsp.platform.type": "standard",
+	"luau-lsp.sourcemap.enabled": false,
+	"luau-lsp.sourcemap.autogenerate": false,
+    "[luau]": {
+		"editor.defaultFormatter": "JohnnyMorganz.stylua",
+		"editor.formatOnSave": true,
+	},
+}

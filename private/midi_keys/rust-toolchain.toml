@@ -1,0 +1,4 @@
+[toolchain]
+# Plugins share Rust types with the engine, so they must use the engine's compiler version.
+channel = "1.99.1"
+profile = "minimal"

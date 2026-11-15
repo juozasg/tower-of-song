@@ -1,0 +1,39 @@
+[project]
+path = "../game.vecta"
+description = "Tower screen, then floor 1 with some answers, help and a check"
+
+[[step]]
+wait_for_frames = 40
+
+[[step]]
+compare_screenshot_to = "./reference/tower.png"
+
+[[step]]
+tap_keys = ["1"]
+
+[[step]]
+wait_for_frames = 20
+
+[[step]]
+compare_screenshot_to = "./reference/floor1_start.png"
+
+[[step]]
+tap_keys = ["tab"]
+
+[[step]]
+tap_keys = ["a"]
+
+[[step]]
+tap_keys = ["d"]
+
+[[step]]
+tap_keys = ["return"]
+
+[[step]]
+wait_for_frames = 5
+
+[[step]]
+compare_screenshot_to = "./reference/floor1_checked.png"
+
+[[step]]
+expect_no_errors = {}

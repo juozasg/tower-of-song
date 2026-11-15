@@ -1,0 +1,9 @@
+[project]
+path = "../game.vecta"
+description = "The game starts on the tower screen without errors (headless runs have no plugins, so sound is a silent stand-in)"
+
+[[step]]
+wait_for_frames = 10
+
+[[step]]
+expect_no_errors = {}

@@ -1,0 +1,10 @@
+title = "Tower of Song"
+main_script_path = "scripts/game.luau"
+logo_path = ""
+description = "A transcription game: hear it, find it on the keys, play it back."
+tags = ["music", "ear training"]
+loading_animation = "pixel"
+default_screen_width = 1280
+default_screen_height = 800
+plugins = ["midi_keys"]
+vectarine_version = "0.7.0"
