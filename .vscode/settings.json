@@ -6,4 +6,5 @@
 		"editor.defaultFormatter": "JohnnyMorganz.stylua",
 		"editor.formatOnSave": true,
 	},
+	"cmake.sourceDirectory": "/Users/juozas/code/tower-of-song/private/juce-prototype",
 }
